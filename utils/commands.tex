@@ -1,0 +1,145 @@
+\newcommand{\lrg}[2]
+{
+\Bigg(\frac{#1}{#2}\Bigg)
+}
+\newcommand{\ilist}[1]
+{
+\begin{itemize}
+#1
+\end{itemize}
+}
+\newcommand{\pdv}[3][]
+{
+\frac{\partial^{#1} #2}{\partial #3^{#1}}
+}
+\newcommand{\pdvdiv}[3][]
+{
+\partial^{#1} #2 / \partial #3^{#1}
+}
+\newcommand{\id}
+{
+\hspace{1mm}\textrm{d}
+}
+\newcommand{\unit}[1]
+{
+\hspace{1mm}\textrm{#1}
+}
+\newcommand{\ezfig}[4][0.8]
+{
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=#1\linewidth]{#2}
+\caption{#3}\label{#4}
+\end{center}
+\end{figure}
+}
+\newcommand{\ezfigrotate}[4][0.8]
+{
+\begin{sidewaysfigure}[h]
+\begin{center}
+\includegraphics[width=#1\linewidth]{#2}
+\caption{#3}\label{#4}
+\end{center}
+\end{sidewaysfigure}
+}
+\newcommand{\equat}[1]
+{
+\begin{equation*}  #1 \end{equation*}
+}
+\newcommand{\mat}[1]
+{
+\begin{pmatrix} #1 \end{pmatrix}
+}
+\newcommand{\imply}
+{
+\hspace{10mm}\to\hspace{10mm}
+}
+\newcommand{\longand}
+{
+\hspace{10mm}\textrm{and}\hspace{10mm}
+}
+\newcommand{\eztab}[4]
+{
+\begin{table}[h]
+\begin{center}
+\caption{#2}
+\begin{tabular}{#1}\label{#3}
+#4
+\end{tabular}
+
+\end{center}
+\end{table}
+}
+\newcommand{\e}[1]
+{
+\cdot10^{#1}
+}
+\newcommand{\drv}[3][]
+{
+\frac{\textrm{d}^{#1}#2}{\textrm{d}#3^{#1}}
+}
+\newcommand{\redtext}[1]{\textcolor{red}{#1}}
+\newcommand{\grntext}[1]{\textcolor{green}{#1}}
+\newcommand{\blutext}[1]{\textcolor{blue}{#1}}
+\newcommand{\prptext}[1]{\textcolor{purple}{#1}}
+\newcommand{\orgtext}[1]{\textcolor{orange}{#1}}
+
+
+\newcommand{\qt}[1]
+{
+``#1''
+}
+\newcommand{\equatlbl}[2]
+{
+\begin{equation}\label{#1}
+#2
+\end{equation}
+}
+
+\makeatletter
+\def\NewLabel#1#2{\expandafter\gdef\csname LBL@#1\endcsname{#2}}
+\def\Ref#1{\@ifundefined{LBL@#1}{???}{\csname LBL@#1\endcsname}}
+\NewLabel{chap::intro}{1}
+\NewLabel{chap::review}{2}
+\NewLabel{chap::numerical}{3}
+\NewLabel{chap::immersed}{4}
+\NewLabel{chap::wallmodel}{5}
+\NewLabel{chap::performance}{6}
+\NewLabel{chap::applications}{7}
+\NewLabel{chap::conclusion}{8}
+
+\newcommand{\thesischapter}[2]{
+  \clearpage
+  \thispagestyle{plain}
+  \setcounter{subsection}{0}
+  \setcounter{figure}{0}
+  \addtocounter{section}{1}
+  \def\chaptername{Chapter \thesection: #1}
+  \addcontentsline{toc}{section}{\protect\numberline{}Chapter \thesection: #1}
+  \section*{\LARGE{Chapter \thesection:} #1 }\label{#2}
+  \vspace{-10mm}
+  \noindent\makebox[\linewidth]{\rule{\textwidth}{0.9pt}}
+}
+
+\newcommand{\chapref}[1]{\Ref{#1}}
+% \newcommand{\chapref}[1]{\textcolor{red}{(chapref broken)}}
+
+\newcommand{\noteToSelf}[1]{\textcolor{red}{#1}}
+
+\newcommand{\ravg}[1]
+{
+  \overline{#1}
+}
+\newcommand{\rflc}[1]
+{
+  #1'
+}
+\newcommand{\favg}[1]
+{
+  \widetilde{#1}
+}
+\newcommand{\fflc}[1]
+{
+  #1''
+}
+

@@ -1,0 +1,741 @@
+\documentclass[12pt]{article}
+\input{utils/packages}
+\input{utils/commands}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\usepackage{fancyhdr}
+
+\begin{document}
+
+Consider the evolution of the kinetic energy $k = \rho (u^2 + v^2 + w^2)/2$
+\begin{equation}
+\frac{1}{2}\pdv{(\rho (u^2 + v^2 + w^2))}{t} = \frac{1}{2}\pdv{(\rho u^2)}{t} + \frac{1}{2}\pdv{(\rho v^2)}{t} + \frac{1}{2}\pdv{(\rho w^2)}{t}
+\end{equation}
+\begin{equation}
+\frac{1}{2}\pdv{(\rho u^2)}{t} = \frac{1}{2}\rho\pdv{u^2}{t} + \frac{1}{2}u^2\pdv{\rho}{t} = u\rho\pdv{u}{t} + \frac{1}{2}u^2\pdv{\rho}{t}
+\end{equation}
+\begin{equation}
+\frac{1}{2}\pdv{(\rho u^2)}{t} = \frac{1}{2}\rho u\pdv{u}{t} + \frac{1}{2}u\pdv{\rho u}{t}
+\end{equation}
+\begin{equation}
+\pdv{(\rho u^2)}{t} = \rho u\pdv{u}{t} + u\pdv{\rho u}{t}
+\end{equation}
+\begin{equation}
+\pdv{(\rho u^2)}{t} - \frac{1}{2}\pdv{(\rho u^2)}{t} = \rho u\pdv{u}{t} + u\pdv{\rho u}{t} - u\rho\pdv{u}{t} - \frac{1}{2}u^2\pdv{\rho}{t}
+\end{equation}
+\begin{equation}
+\frac{1}{2}\pdv{(\rho u^2)}{t} = u\pdv{\rho u}{t} - \frac{1}{2}u^2\pdv{\rho}{t}
+\end{equation}
+\begin{equation}
+\to \frac{1}{2}\pdv{(\rho (u^2 + v^2 + w^2))}{t} = u\pdv{\rho u}{t} - \frac{1}{2}u^2\pdv{\rho}{t} + v\pdv{\rho v}{t} - \frac{1}{2}v^2\pdv{\rho}{t} + w\pdv{\rho w}{t} - \frac{1}{2}w^2\pdv{\rho}{t}
+\end{equation}
+With $k = (u^2 + v^2 + w^2)/2$,
+\begin{equation}
+\to \pdv{(\rho k)}{t} = u\pdv{\rho u}{t} + v\pdv{\rho v}{t} + w\pdv{\rho w}{t} - k \pdv{\rho}{t}
+\end{equation}
+We have
+\begin{equation}
+\pdv{(\rho u)}{t} + \pdv{(\rho u u)}{x} + \pdv{(\rho u v)}{y} + \pdv{(\rho u w)}{z} + \pdv{p}{x} = \pdv{\tau_{xx}}{x} + \pdv{\tau_{xy}}{y} + \pdv{\tau_{xz}}{z}
+\end{equation}
+\begin{equation}
+\pdv{(\rho v)}{t} + \pdv{(\rho v u)}{x} + \pdv{(\rho v v)}{y} + \pdv{(\rho v w)}{z} + \pdv{p}{y} = \pdv{\tau_{yx}}{x} + \pdv{\tau_{yy}}{y} + \pdv{\tau_{yz}}{z}
+\end{equation}
+\begin{equation}
+\pdv{(\rho w)}{t} + \pdv{(\rho w u)}{x} + \pdv{(\rho w v)}{y} + \pdv{(\rho w w)}{z} + \pdv{p}{z} = \pdv{\tau_{zx}}{x} + \pdv{\tau_{zy}}{y} + \pdv{\tau_{zz}}{z}
+\end{equation}
+\begin{equation}
+\pdv{\rho}{t} + \pdv{(\rho u)}{x} + \pdv{(\rho v)}{y} + \pdv{(\rho w)}{z} = 0
+\end{equation}
+And so
+\begin{equation}
+\pdv{(\rho k)}{t} = u\pdv{\rho u}{t} + v\pdv{\rho v}{t} + w\pdv{\rho w}{t} - \frac{1}{2}u^2 \pdv{\rho}{t} - \frac{1}{2}v^2 \pdv{\rho}{t} - \frac{1}{2}w^2 \pdv{\rho}{t}
+\end{equation}
+\begin{equation}
+= u\pdv{\tau_{xx}}{x} + u\pdv{\tau_{xy}}{y} + u\pdv{\tau_{xz}}{z} - u\pdv{p}{x} - u\pdv{(\rho u u)}{x} - u \pdv{(\rho u v)}{y} - u \pdv{(\rho u w)}{z}
+\end{equation}
+\begin{equation}
++ v\pdv{\tau_{yx}}{x} + v\pdv{\tau_{yy}}{y} + v\pdv{\tau_{yz}}{z} - v\pdv{p}{y} - v\pdv{(\rho v u)}{x} - v \pdv{(\rho v v)}{y} - v \pdv{(\rho v w)}{z}
+\end{equation}
+\begin{equation}
++ w\pdv{\tau_{zx}}{x} + w\pdv{\tau_{zy}}{y} + w\pdv{\tau_{zz}}{z} - w\pdv{p}{z} - w\pdv{(\rho w u)}{x} - w \pdv{(\rho w v)}{y} - w \pdv{(\rho w w)}{z}
+\end{equation}
+\begin{equation}
++ \frac{1}{2}uu \pdv{\rho u}{x} + \frac{1}{2}uu \pdv{\rho v}{y} + \frac{1}{2}uu \pdv{\rho w}{z} + \frac{1}{2}vv \pdv{\rho u}{x} + \frac{1}{2}vv \pdv{\rho v}{y} + \frac{1}{2}vv \pdv{\rho w}{z}
+\end{equation}
+\begin{equation}
++ \frac{1}{2}ww \pdv{\rho u}{x} + \frac{1}{2}ww \pdv{\rho v}{y} + \frac{1}{2}ww \pdv{\rho w}{z}
+\end{equation}
+Note that
+\begin{equation}
+\pdv{(\rho u k)}{x} + \pdv{(\rho u k)}{y} + \pdv{(\rho u k)}{z}
+\end{equation}
+\begin{equation}
+= \pdv{(\rho u u u)}{x} + \pdv{(\rho u v v)}{x} + \pdv{(\rho u w w)}{x}
++ \pdv{(\rho v u u)}{x} + \pdv{(\rho v v v)}{x} + \pdv{(\rho v w w)}{x}
+\end{equation}
+\begin{equation}
++ \pdv{(\rho w u u)}{x} + \pdv{(\rho w v v)}{x} + \pdv{(\rho w w w)}{x}
+\end{equation}
+note
+\begin{equation}
+\pdv{(\rho u u u)}{x} = u u \pdv{(\rho u)}{x} + \rho u \pdv{(u u)}{x} = u u \pdv{(\rho u)}{x} + 2\rho u u\pdv{u}{x} = u \pdv{(\rho u u)}{x} + \rho u u \pdv{u}{x}
+\end{equation}
+and so
+\begin{equation}
+\pdv{(\rho u u u)}{x} = 2u \pdv{(\rho u u)}{x} + 2\rho u u \pdv{u}{x} - u u \pdv{(\rho u)}{x} - 2\rho u u\pdv{u}{x}
+\end{equation}
+\begin{equation}
+\pdv{(\rho u u u)}{x} = 2u \pdv{(\rho u u)}{x} - u u \pdv{(\rho u)}{x}
+\end{equation}
+and
+\begin{equation}
+\frac{1}{2}\pdv{(\rho u_i u_k u_k)}{x_i} = u \pdv{(\rho u u)}{x} - \frac{1}{2}u u \pdv{(\rho u)}{x}
+\end{equation}
+Generally,
+\begin{equation}
+\pdv{(\rho u_i u_k u_k)}{x_i} = 2\left(u_k\pdv{(\rho u_i u_k)}{x_i} + \rho u_i u_k\pdv{(u_k)}{x_i}\right) - \left(u_k u_k\pdv{\rho u_i}{x_i} + \rho u_i\pdv{u_k u_k}{x_i}\right)
+\end{equation}
+\begin{equation}
+=2u_k\pdv{(\rho u_i u_k)}{x_i} + 2\rho u_i u_k\pdv{(u_k)}{x_i} - u_k u_k\pdv{\rho u_i}{x_i} - 2\rho u_i u_k\pdv{u_k }{x_i}
+\end{equation}
+\begin{equation}
+=2u_k\pdv{(\rho u_i u_k)}{x_i} - u_k u_k\pdv{\rho u_i}{x_i}
+\end{equation}
+and
+\begin{equation}
+\frac{1}{2}\pdv{\rho u_i u_k u_k}{x_i} = u_k\pdv{(\rho u_i u_k)}{x_i} - \frac{1}{2}u_k u_k\pdv{\rho u_i}{x_i}
+\end{equation}
+
+The above implies that
+\begin{equation}
+\pdv{\rho k}{t} + \pdv{\rho u_i k}{x_i} + u_m\pdv{p}{x_m} = u_n\pdv{\tau_{nm}}{x_m}.
+\end{equation}
+
+\section{Better derivation}
+
+Define $k = \frac{1}{2}u_ku_k$, and note that
+\begin{equation*}
+\pdv{\rho k}{t} = \frac{1}{2}\pdv{(\rho u_ku_k)}{t} = \pdv{(\rho u_ku_k)}{t} - \frac{1}{2}\pdv{(\rho u_ku_k)}{t}
+= u_k\pdv{(\rho u_k)}{t} + \rho u_k\pdv{u_k}{t} - \frac{1}{2}\rho \pdv{(u_ku_k)}{t} - \frac{1}{2}u_ku_k\pdv{\rho}{t}
+\end{equation*}
+\begin{equation}\label{eq::ident}
+= u_k\pdv{(\rho u_k)}{t} - \frac{1}{2}u_ku_k\pdv{\rho}{t}.
+\end{equation}
+With
+\begin{equation}
+\pdv{\rho}{t} = -\pdv{(\rho u_i)}{x_i}
+\end{equation}
+and
+\begin{equation}
+\pdv{(\rho u_j)}{t} = -\pdv{(\rho u_j u_i)}{x_i} - \pdv{p}{x_j} + \pdv{\tau_{ij}}{x_i},
+\end{equation}
+it follows that
+\begin{equation*}
+\pdv{\rho k}{t} = -u_k\left(\pdv{(\rho u_k u_i)}{x_i} + \pdv{p}{x_k} - \pdv{\tau_{ik}}{x_i}\right) + \frac{1}{2}u_ku_k\pdv{(\rho u_i)}{x_i}
+\end{equation*}
+\begin{equation}
+= - \left(u_k\pdv{(\rho u_k u_i)}{x_i} - \frac{1}{2}u_ku_k\pdv{(\rho u_i)}{x_i}\right) - u_k\pdv{p}{x_k} + u_k\pdv{\tau_{ik}}{x_i}.
+\end{equation}
+Note that
+\begin{equation*}
+\frac{1}{2}\pdv{(\rho u_i u_ku_k)}{x_i} = \pdv{(\rho u_i u_ku_k)}{x_i} - \frac{1}{2}\pdv{(\rho u_i u_ku_k)}{x_i}
+\end{equation*}
+\begin{equation*}
+= u_k\pdv{(\rho u_i u_k)}{x_i} + \rho u_i u_k\pdv{u_k}{x_i} - \frac{1}{2}\rho u_i \pdv{(u_ku_k)}{x_i} - \frac{1}{2}u_ku_k\pdv{(\rho u_i)}{x_i}
+\end{equation*}
+\begin{equation}
+= u_k\pdv{(\rho u_i u_k)}{x_i} + \rho u_i u_k\pdv{u_k}{x_i} - \rho u_i u_k \pdv{u_k}{x_i} - \frac{1}{2}u_ku_k\pdv{(\rho u_i)}{x_i}
+= u_k\pdv{(\rho u_i u_k)}{x_i} - \frac{1}{2}u_ku_k\pdv{(\rho u_i)}{x_i}.
+\end{equation}
+Substituting gives the final kinetic energy conservation equation
+\begin{equation}\label{eq::kcons}
+\pdv{\rho k}{t} + \pdv{(\rho u_m k)}{x_m} + u_n\pdv{p}{x_n} = u_n\pdv{\tau_{mn}}{x_m}.
+\end{equation}
+Note that the momentum and mass conservation equations are solved in the form
+\begin{equation}
+\pdv{\rho}{t} + \frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i} = 0
+\end{equation}
+and
+\begin{equation}
+\pdv{(\rho u_j)}{t} + \frac{f_{R,i}^{m,j} - f_{L,i}^{m,j}}{\Delta x_i} = \frac{v_{R,i}^{m,j} - v_{L,i}^{m,j}}{\Delta x_i}.
+\end{equation}
+With (\ref{eq::ident}), we have
+\begin{equation*}
+\pdv{(\rho k)}{t} = u_k\pdv{(\rho u_k)}{t} - \frac{1}{2}u_ku_k\pdv{\rho}{t}
+\end{equation*}
+\begin{equation}
+= u_k\left(\frac{v_{R,i}^{m,k} - v_{L,i}^{m,k}}{\Delta x_i} - \frac{f_{R,i}^{m,k} - f_{L,i}^{m,k}}{\Delta x_i}\right) + \frac{1}{2}u_ku_k\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i}
+\end{equation}
+Rearranging gives
+\begin{equation}
+\pdv{(\rho k)}{t} + u_k\left(\frac{f_{R,i}^{m,k} - f_{L,i}^{m,k}}{\Delta x_i}\right) - \frac{1}{2}u_ku_k\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i}
+= u_k\left(\frac{v_{R,i}^{m,k} - v_{L,i}^{m,k}}{\Delta x_i}\right)
+\end{equation}
+We write out explicitly:
+\begin{equation*}
+\pdv{(\rho k)}{t}
+\end{equation*}
+\begin{equation*}
++ u_0\left(\frac{f_{R,i}^{m,0} - f_{L,i}^{m,0}}{\Delta x_i}\right)
++ u_1\left(\frac{f_{R,i}^{m,1} - f_{L,i}^{m,1}}{\Delta x_i}\right)
++ u_2\left(\frac{f_{R,i}^{m,2} - f_{L,i}^{m,2}}{\Delta x_i}\right)
+\end{equation*}
+\begin{equation*}
+- \frac{1}{2}u_0u_0\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i}
+- \frac{1}{2}u_1u_1\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i}
+- \frac{1}{2}u_2u_2\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i}
+\end{equation*}
+Analyzing now just
+\begin{equation}
+u_0\left(\frac{f_{R,i}^{m,0} - f_{L,i}^{m,0}}{\Delta x_i}\right) - \frac{1}{2}u_0u_0\frac{f_{R,i}^\rho - f_{L,i}^\rho}{\Delta x_i},
+\end{equation}
+write $u_0 = (u_{0,R} + u_{0,L})/2$ to get
+\begin{equation}
+\Delta x_i C = u_0\left(f_{R,i}^{m,0} - f_{L,i}^{m,0}\right) - \frac{1}{2}u_0u_0\left(f_{R,i}^\rho - f_{L,i}^\rho\right),
+\end{equation}
+Written more simply:
+\begin{equation}
+C = u_i\left(f_{R}^{m} - f_{L}^{m}\right) - \frac{1}{2}u_i^2\left(f_{R}^\rho - f_{L}^\rho\right),
+\end{equation}
+Shifting right by one face:
+\begin{equation}
+C_1 = u_{i+1}\left(f_{RR}^{m} - f_{R}^{m}\right) - \frac{1}{2}u_{i+1}^2\left(f_{RR}^\rho - f_{R}^\rho\right),
+\end{equation}
+and
+\begin{equation}
+C + C_1 = u_i\left(f_{R}^{m} - f_{L}^{m}\right) - \frac{1}{2}u_i^2\left(f_{R}^\rho - f_{L}^\rho\right) + u_{i+1}\left(f_{RR}^{m} - f_{R}^{m}\right) - \frac{1}{2}u_{i+1}^2\left(f_{RR}^\rho - f_{R}^\rho\right)
+\end{equation}
+Rearranging:
+\begin{equation}
+C + C_1
+= u_if_{R}^{m} - u_if_{L}^{m} - \frac{1}{2}u_i^2f_{R}^\rho + \frac{1}{2}u_i^2f_{L}^\rho
++ u_{i+1}f_{RR}^{m} - u_{i+1}f_{R}^{m} - \frac{1}{2}u_{i+1}^2f_{RR}^\rho + \frac{1}{2}u_{i+1}^2f_{R}^\rho,
+\end{equation}
+\begin{equation}
+C + C_1
+= \left(u_if_{R}^{m} - u_{i+1}f_{R}^{m} + \frac{1}{2}u_{i+1}^2f_{R}^\rho - \frac{1}{2}u_i^2f_{R}^\rho\right)
++ \left(u_{i+1}f_{RR}^{m} - u_if_{L}^{m} + \frac{1}{2}u_i^2f_{L}^\rho - \frac{1}{2}u_{i+1}^2f_{RR}^\rho\right)
+\end{equation}
+\begin{equation}
+C + C_1
+= \left((u_i- u_{i+1})f_{R}^{m} + \frac{1}{2}(u_{i+1}^2 - u_i^2)f_{R}^\rho\right)
++ \left(u_{i+1}f_{RR}^{m} - u_if_{L}^{m} + \frac{1}{2}u_i^2f_{L}^\rho - \frac{1}{2}u_{i+1}^2f_{RR}^\rho\right)
+\end{equation}
+\begin{equation}
+C + C_1
+= (u_i- u_{i+1})\left(f_{R}^{m} - \frac{1}{2}(u_{i+1} + u_i)f_{R}^\rho\right)
++ \left(u_{i+1}f_{RR}^{m} - u_if_{L}^{m} + \frac{1}{2}u_i^2f_{L}^\rho - \frac{1}{2}u_{i+1}^2f_{RR}^\rho\right)
+\end{equation}
+requiring, specifically, that
+\begin{equation}
+f_{R}^{m} = \frac{1}{2}(u_{i+1} + u_i)f_{R}^\rho
+\end{equation}
+Relaxing the local conservation constraint, and extending to four fluxes:
+\begin{equation}
+C_0 = u_0\left(f_{1/2}^{m} - f_{-1/2}^{m}\right) - \frac{1}{2}u_0^2\left(f_{1/2}^\rho - f_{-1/2}^\rho\right)
+\end{equation}
+\begin{equation}
+C_1 = u_1\left(f_{3/2}^{m} - f_{1/2}^{m}\right) - \frac{1}{2}u_1^2\left(f_{3/2}^\rho - f_{1/2}^\rho\right)
+\end{equation}
+\begin{equation}
+C_2 = u_2\left(f_{5/2}^{m} - f_{3/2}^{m}\right) - \frac{1}{2}u_2^2\left(f_{5/2}^\rho - f_{3/2}^\rho\right)
+\end{equation}
+\begin{equation}
+C_3 = u_3\left(f_{7/2}^{m} - f_{5/2}^{m}\right) - \frac{1}{2}u_3^2\left(f_{7/2}^\rho - f_{5/2}^\rho\right)
+\end{equation}
+Suppose instead that the fluxes are differentiated higher-order, nominally.
+\begin{equation}
+C_0 = u_0\left(a_{00}f_{0}^{m} + a_{01}f_{1}^{m} + a_{02}f_{2}^{m} + a_{03}f_{3}^{m}\right)
+- \frac{1}{2}u_0^2\left(b_{00}f_{0}^{\rho} + b_{01}f_{1}^{\rho} + b_{02}f_{2}^{\rho} + b_{03}f_{3}^{\rho}\right)
+\end{equation}
+\begin{equation}
+C_1 = u_1\left(a_{11}f_{1}^{m} + a_{12}f_{2}^{m} + a_{13}f_{3}^{m} + a_{14}f_{4}^{m}\right)
+- \frac{1}{2}u_1^2\left(b_{11}f_{1}^{\rho} + b_{12}f_{2}^{\rho} + b_{13}f_{3}^{\rho} + b_{14}f_{4}^{\rho}\right)
+\end{equation}
+\begin{equation}
+C_2 = u_2\left(a_{22}f_{2}^{m} + a_{23}f_{3}^{m} + a_{24}f_{4}^{m} + a_{25}f_{5}^{m}\right)
+- \frac{1}{2}u_2^2\left(b_{22}f_{2}^{\rho} + b_{23}f_{3}^{\rho} + b_{24}f_{4}^{\rho} + b_{25}f_{5}^{\rho}\right)
+\end{equation}
+\begin{equation}
+C_3 = u_3\left(a_{33}f_{3}^{m} + a_{34}f_{4}^{m} + a_{35}f_{5}^{m} + a_{36}f_{6}^{m}\right)
+- \frac{1}{2}u_3^2\left(b_{33}f_{3}^{\rho} + b_{34}f_{4}^{\rho} + b_{35}f_{5}^{\rho} + b_{36}f_{6}^{\rho}\right)
+\end{equation}
+The condition for kinetic energy conservation is then
+\begin{equation}
+u_0a_{03} + u_1a_{13} + u_2a_{23} + u_3a_{33} - \frac{1}{2}(u_0^2b_{03} + u_1^2b_{13} + u_2^2b_{23} + u_3^2b_{33}) = 0
+\end{equation}
+
+We consider the order-2 velocity average first:
+\begin{equation}
+u_{i+1} = u_{i+1/2}
++ \frac{\Delta x}{2}u'_{i+1/2}
++ \frac{1}{2!}\frac{\Delta x^2}{2^2}u_{i+1/2}''
++ \frac{1}{3!}\frac{\Delta x^3}{2^3}u_{i+1/2}'''
++ \frac{1}{4!}\frac{\Delta x^4}{2^4}u_{i+1/2}'''' + \dots
+\end{equation}
+\begin{equation}
+u_{i} = u_{i+1/2}
+- \frac{\Delta x}{2}u'_{i+1/2}
++ \frac{1}{2!}\frac{\Delta x^2}{2^2}u_{i+1/2}''
+- \frac{1}{3!}\frac{\Delta x^3}{2^3}u_{i+1/2}'''
++ \frac{1}{4!}\frac{\Delta x^4}{2^4}u_{i+1/2}'''' + \dots
+\end{equation}
+\begin{equation}
+\frac{1}{2}(u_i + u_{i+1}) = u_{i+1/2} + \frac{1}{2!}\frac{\Delta x^2}{2^2}u_{i+1/2}'' + \frac{1}{4!}\frac{\Delta x^4}{2^4}u_{i+1/2}'''' + \dots
+\end{equation}
+Consider
+\begin{equation}
+\frac{f^m_{i+1/2} - f^m_{i-1/2}}{\Delta x} = \frac{1}{2\Delta x}\left((u_{i+1}-u_{i})f^\rho_{i+1/2} - (u_{i}-u_{i-1})f^\rho_{i-1/2}\right)
+\end{equation}
+Consider a mass flux of the forms
+\begin{align}
+\textrm{Form 1:\hspace{7mm}}&f^\rho_{i+1/2} = a_0\rho_{i-1}u_{i-1} + a_1\rho_{i}u_{i} + a_2\rho_{i+1}u_{i+1} + a_3\rho_{i+2}u_{i+2} \\
+\textrm{Form 2:\hspace{7mm}}&f^\rho_{i+1/2} = (a_0\rho_{i-1}+a_1\rho_{i}+a_2\rho_{i+1}+a_3\rho_{i+2})(b_0u_{i-1}+b_1u_{i}+b_2u_{i+1}+b_3u_{i+2}) \\
+\textrm{Form 3:\hspace{7mm}}&f^\rho_{i+1/2} = ??
+\end{align}
+We expand at $i$ and write $f^\rho_{i+1/2} = f_{i+1/2}$ to get
+\begin{equation}
+f_{i+1/2} = f_{i} + \frac{\Delta x}{2}f_{i}' + \frac{1}{2!}\frac{\Delta x^2}{2^2}f_{i}'' + \frac{1}{3!}\frac{\Delta x^3}{2^3}f_{i}''' + \frac{1}{4!}\frac{\Delta x^4}{2^4}f_{i}'''' + \dots
+\end{equation}
+Also,
+\begin{equation}
+u_{i+n} = u_i + n\Delta x u_i' + \frac{1}{2!}\left(n\Delta x\right)^2 u_i'' + \frac{1}{3!}\left(n\Delta x\right)^3 u_i''' + \frac{1}{4!}\left(n\Delta x\right)^4 u_i'''' + \dots
+\end{equation}
+It will be impossible to formulate a 4th-order flux using form 1 (it should be relatively clear to see).
+\section{Following Pirozzoli}
+The kinetic energy equation is given as 
+\begin{equation}
+\pdv{\rho k}{t} + \pdv{\rho u_i k}{x_i} + u_m\pdv{p}{x_m} = u_n\pdv{\tau_{nm}}{x_m}.
+\end{equation}
+We write the convective term as
+\begin{equation}
+\pdv{(\rho u u)}{x} = \frac{1}{2}\pdv{(\rho u u)}{x} + \frac{1}{2}u\pdv{(\rho u)}{x} + \frac{1}{2}\rho u\pdv{(u)}{x}
+\end{equation}
+We have 
+\begin{equation}
+\pdv{\rho k}{t} = u\pdv{\rho u}{t} - \frac{1}{2}u^2\pdv{\rho}{t} = -u\frac{1}{2}\pdv{(\rho u u)}{x} - u\frac{1}{2}u\pdv{(\rho u)}{x} - u\frac{1}{2}\rho u\pdv{(u)}{x} + \frac{1}{2}u^2\pdv{\rho u}{x}
+\end{equation}
+\begin{equation}
+= -u\frac{1}{2}\pdv{(\rho u u)}{x} - u\frac{1}{2}\rho u\pdv{(u)}{x} = -\frac{1}{2}\left(u\pdv{(\rho uu)}{x} + \rho uu\pdv{u}{x}\right)
+\end{equation}
+\begin{equation}
+= -\left(\overbrace{\frac{1}{2}\pdv{\rho u uu}{x} + \frac{1}{2} u\pdv{(\rho uu)}{x} + \frac{1}{2} \rho uu\pdv{u}{x}}^{\textrm{(split form)}} - \frac{1}{2}\pdv{\rho u uu}{x}\right)
+\end{equation}
+\begin{equation}
+= -\left(\pdv{\rho u uu}{x} - \frac{1}{2}\pdv{\rho u uu}{x}\right) = -\frac{1}{2}\pdv{\rho uuu}{x}
+\end{equation}
+The discrete form of the split derivative is given as
+\begin{equation}
+\pdv{fg}{x}\Big|_i = \frac{1}{2}D(fg)_i + \frac{1}{2}f_iD(g)_i + \frac{1}{2}g_iD(f)_i
+\end{equation}
+Consider the following:
+\begin{equation}\label{eq::conserv1}
+\frac{1}{\Delta x}\left(\frac{1}{4}\left(f_i + f_{i+1}\right)\left(g_i + g_{i+1}\right) - \frac{1}{4}\left(f_{i-1} + f_{i}\right)\left(g_{i-1} + g_{i}\right)\right)
+\end{equation}
+\begin{equation}
+=\frac{1}{2}\frac{1}{2\Delta x}\left(f_{i}g_{i} + f_{i}g_{i+1} + f_{i+1}g_{i} + f_{i+1}g_{i+1} - f_{i-1}g_{i-1} - f_{i}g_{i-1} - f_{i-1}g_{i} - f_{i}g_{i}\right)
+\end{equation}
+\begin{equation}
+=\frac{1}{2}\frac{1}{2\Delta x}\left(f_{i+1}g_{i+1} - f_{i-1}g_{i-1}\right)
++\frac{1}{2}\frac{1}{2\Delta x}f_i\left(g_{i+1} - g_{i-1}\right)
++\frac{1}{2}\frac{1}{2\Delta x}g_{i}\left(f_{i+1} - f_{i-1}\right)
+\end{equation}
+\begin{equation}
+= \frac{1}{2}D(fg)_i + \frac{1}{2}f_iD(g)_i + \frac{1}{2}g_iD(f)_i
+\end{equation}
+\begin{equation}\label{eq::nocons}
+\frac{1}{\Delta x}\left((f_{i} + f_{i+2})(g_{i} + g_{i+2}) - (f_{i-2} + f_{i})(g_{i-2} + g_{i})\right)
+\end{equation}
+This clearly can be transformed to
+\begin{equation}
+\frac{1}{\Delta x}\left(f_{i+2}g_{i+2} - f_{i-2}g_{i-2}\right)
++\frac{1}{\Delta x}f_i\left(g_{i+2} - g_{i-2}\right)
++\frac{1}{\Delta x}g_{i}\left(f_{i+2} - f_{i-2}\right)
+\end{equation}
+Unlike (\ref{eq::conserv1}), (\ref{eq::nocons}) is not written in a conservative form. However, consider the following:
+\begin{equation}
+\left((f_{i} + f_{i+2})(g_{i} + g_{i+2}) - (f_{i-2} + f_{i})(g_{i-2} + g_{i})\right) + (f_{i-1} + f_{i+1})(g_{i-1} + g_{i+1}) - (f_{i-1} + f_{i+1})(g_{i-1} + g_{i+1})
+\end{equation}
+\begin{equation*}
+=\left(f_{i+2}g_{i+2} - f_{i-2}g_{i-2}\right)
++f_i\left(g_{i+2} - g_{i-2}\right)
++g_{i}\left(f_{i+2} - f_{i-2}\right)
+\end{equation*}
+\begin{equation}
+ + (f_{i-1} + f_{i+1})(g_{i-1} + g_{i+1}) - (f_{i-1} + f_{i+1})(g_{i-1} + g_{i+1})
+\end{equation}
+This has the form
+\begin{equation}
+f_{i+1/2} = (f_{i}+f_{i+2})(g_{i}+g_{i+2}) + (f_{i-1}+f_{i+1})(g_{i-1}+g_{i+1})
+\end{equation}
+\begin{equation}
+f_{i-1/2} = (f_{i-1}+f_{i+1})(g_{i-1}+g_{i+1}) + (f_{i-2}+f_{i})(g_{i-2}+g_{i}),
+\end{equation}
+which is clearly conservative, but when added yield
+\begin{equation*}
+f_{i+1/2} - f_{i-1/2} = (f_{i}+f_{i+2})(g_{i}+g_{i+2}) - (f_{i-2}+f_{i})(g_{i-2}+g_{i})
+\end{equation*}
+\begin{equation}
+= (f_{i+2}g_{i+2} - f_{i-2}g_{i-2}) + f_i(g_{i+2}-g_{i-2}) + g_i(f_{i+2}-f_{i-2})
+\end{equation}
+A linear combination of these approximations yields the full final derivative (2 terms shown here)
+\begin{equation*}
+\pdv{(fg)}{x_i} \approx 
+a_0(f_{i+1}g_{i+1} - f_{i-1}g_{i-1}) + a_0f_i(g_{i+1}-g_{i-1}) + a_0g_i(f_{i+1}-f_{i-1})
+\end{equation*}
+\begin{equation}
++a_1(f_{i+2}g_{i+2} - f_{i-2}g_{i-2}) + a_1f_i(g_{i+2}-g_{i-2}) + a_1g_i(f_{i+2}-f_{i-2})
+\end{equation}
+Note that the use of the conservative formulation is actually not necessary. By setting $a_0 = \frac{1}{\Delta x}\frac{1}{2}\frac{2}{3}$ and
+$a_1 = -\frac{1}{\Delta x}\frac{1}{2}\frac{1}{12}$ gives
+\begin{equation*}
+\pdv{(fg)}{x}\Big|_i = \frac{1}{2}\frac{1}{\Delta x}\left(-\frac{1}{12}f_{i+2}g_{i+2} + \frac{2}{3}f_{i+1}g_{i+1} - \frac{2}{3}f_{i-1}g_{i-1} + \frac{1}{12}f_{i-2}g_{i-2}\right)
+\end{equation*}
+\begin{equation*}
++\frac{1}{2}\frac{1}{\Delta x}f_i\left(-\frac{1}{12}g_{i+2} + \frac{2}{3}g_{i+1} - \frac{2}{3}g_{i-1} + \frac{1}{12}g_{i-2}\right)
+\end{equation*}
+\begin{equation}\label{eq::nonconserv}
++\frac{1}{2}\frac{1}{\Delta x}g_i\left(-\frac{1}{12}f_{i+2} + \frac{2}{3}f_{i+1} - \frac{2}{3}f_{i-1} + \frac{1}{12}f_{i-2}\right)
+\end{equation}
+Following from (\ref{eq::nonconserv}), we derive the specific fluxes:
+\begin{equation*}
+\pdv{(fg)}{x}\Big|_i = \frac{1}{2}\frac{1}{\Delta x}\left(-\frac{1}{12}\right)\left(f_{i} + f_{i+2}\right)\left(g_{i} + g_{i+2}\right)
++\frac{1}{2}\frac{1}{\Delta x}\frac{2}{3}\left(f_{i} + f_{i+1}\right)\left(g_{i} + g_{i+1}\right)
+\end{equation*}
+\begin{equation*}
+-\frac{1}{2}\frac{1}{\Delta x}\left(-\frac{1}{12}\right)\left(f_{i-2} + f_{i}\right)\left(g_{i-2} + g_{i}\right)
+-\frac{1}{2}\frac{1}{\Delta x}\frac{2}{3}\left(f_{i-1} + f_{i}\right)\left(g_{i-1} + g_{i}\right)
+\end{equation*}
+\begin{equation*}
+= 2\frac{1}{\Delta x}\left(-\frac{1}{12}\right)\frac{1}{4}\left(f_{i} + f_{i+2}\right)\left(g_{i} + g_{i+2}\right)
++2\frac{1}{\Delta x}\frac{2}{3}\frac{1}{4}\left(f_{i} + f_{i+1}\right)\left(g_{i} + g_{i+1}\right)
+\end{equation*}
+\begin{equation}
+-2\frac{1}{\Delta x}\frac{1}{4}\left(-\frac{1}{12}\right)\left(f_{i-2} + f_{i}\right)\left(g_{i-2} + g_{i}\right)
+-2\frac{1}{\Delta x}\frac{2}{3}\frac{1}{4}\left(f_{i-1} + f_{i}\right)\left(g_{i-1} + g_{i}\right)
+\end{equation}
+Adding and subtracting the ``unnecessary" term:
+\begin{equation*}
+= 2\frac{1}{\Delta x}\left(-\frac{1}{12}\right)
+\left(\frac{1}{4}\left(f_{i} + f_{i+2}\right)\left(g_{i} + g_{i+2}\right) + \frac{1}{4}\left(f_{i-1} + f_{i+1}\right)\left(g_{i-1} + g_{i+1}\right)\right)
+\end{equation*}
+\begin{equation*}
++2\frac{1}{\Delta x}\frac{2}{3}\frac{1}{4}\left(f_{i} + f_{i+1}\right)\left(g_{i} + g_{i+1}\right)
+\end{equation*}
+\begin{equation*}
+-2\frac{1}{\Delta x}\left(-\frac{1}{12}\right)\left(\frac{1}{4}\left(f_{i-1} + f_{i+1}\right)\left(g_{i-1} + g_{i+1}\right) + \frac{1}{4}\left(f_{i-2} + f_{i}\right)\left(g_{i-2} + g_{i}\right)\right)
+\end{equation*}
+\begin{equation*}
+-2\frac{1}{\Delta x}\frac{2}{3}\frac{1}{4}\left(f_{i-1} + f_{i}\right)\left(g_{i-1} + g_{i}\right)
+\end{equation*}
+On a side note, consider the triple product
+\begin{equation*}
+(f_{i} + f_{i+2})(g_{i} + g_{i+2})(h_{i} + h_{i+2}) - (f_{i-2} + f_{i})(g_{i-2} + g_{i})(h_{i-2} + h_{i})
+\end{equation*}
+\begin{equation*}
+= f_{i}g_{i}h_{i}     + f_{i+2}g_{i}h_{i}
++ f_{i}g_{i+2}h_{i}   + f_{i+2}g_{i+2}h_{i}
++ f_{i}g_{i}h_{i+2}   + f_{i+2}g_{i}h_{i+2}
++ f_{i}g_{i+2}h_{i+2} + f_{i+2}g_{i+2}h_{i+2}
+\end{equation*}
+\begin{equation*}
+- f_{i}g_{i}h_{i}     - f_{i-2}g_{i}h_{i}
+- f_{i}g_{i-2}h_{i}   - f_{i-2}g_{i-2}h_{i}
+- f_{i}g_{i}h_{i-2}   - f_{i-2}g_{i}h_{i-2}
+- f_{i}g_{i-2}h_{i-2} - f_{i-2}g_{i-2}h_{i-2}
+\end{equation*}
+\begin{equation*}
+= (f_{i}g_{i}h_{i} - f_{i-2}g_{i-2}h_{i-2}) + f_{i}(g_{i+2}h_{i+2} - g_{i-2}h_{i-2}) + g_{i}(f_{i+2}h_{i+2} - f_{i-2}h_{i-2})
+\end{equation*}
+\begin{equation}
++ h_{i}(f_{i+2}g_{i+2} - f_{i-2}g_{i-2}) + f_{i}g_{i}(h_{i+2} - h_{i-2}) + f_{i}h_{i}(g_{i+2} - g_{i-2}) + h_{i}g_{i}(f_{i+2} - f_{i-2})
+\end{equation}
+\section{Entropy}
+Following Kuya and Totani: note that a transport equation can be derived for the entropy, given by
+\begin{equation}
+\pdv{\rho s}{t} + \pdv{\rho u_i s}{x_i} = \frac{1}{T}\left(\left(sT - e - \frac{p}{\rho}\right)\left(\pdv{\rho}{t} + \pdv{\rho u_i}{x_i}\right) + \pdv{\rho e}{t} + \pdv{\rho e u_i}{x_i} + p\pdv{u_i}{x_i}\right)
+\end{equation}
+Since numerically,
+\begin{equation}
+\pdv{\rho}{t} + \pdv{\rho u_i}{x_i} = D_\rho = 0 \hspace{5mm}\textrm{(mass diffusion is zero for now...)}
+\end{equation}
+we have
+\begin{equation}
+\pdv{\rho s}{t} + \pdv{\rho u_i s}{x_i} = \frac{1}{T}\left(\pdv{\rho e}{t} + \pdv{\rho e u_i}{x_i} + p\pdv{u_i}{x_i}\right)
+\end{equation}
+The total energy Euler equation is given as
+\begin{equation}
+\pdv{\rho(e + k)}{t} + \pdv{(\rho u_i (e + k + p/\rho))}{x_i},
+\end{equation}
+where
+\begin{equation}
+e = \frac{p}{\gamma - 1} = \rho c_v T = \frac{c_v p}{R} = \frac{R}{\gamma - 1}\frac{p}{R}
+\end{equation}
+and
+\begin{equation}
+k = \frac{1}{2}u_ku_k
+\end{equation}
+We know from above that
+\begin{equation}
+\pdv{\rho k}{t} + \pdv{\rho k u_i}{x_i} + u_i\pdv{p}{x_i} = 0,
+\end{equation}
+so it can be added to the entropy equation to obtain
+\begin{equation}
+\pdv{\rho s}{t} + \pdv{\rho u_i s}{x_i}
+=\frac{1}{T}\left(\pdv{\rho e}{t} + \pdv{\rho e u_i}{x_i} + p\pdv{u_i}{x_i} + \pdv{\rho k}{t} + \pdv{\rho k u_i}{x_i} + u_i\pdv{p}{x_i}\right)
+\end{equation}
+By using a kinetic energy preserving scheme, we know that
+\begin{equation}
+\pdv{\rho s}{t} + \pdv{\rho u_i s}{x_i}
+=\frac{1}{T}\left(\pdv{\rho (e + k)}{t} + \pdv{\rho (e + k + p/\rho) u_i}{x_i} + p\pdv{u_i}{x_i} + u_i\pdv{p}{x_i} - \pdv{p u_i}{x_i}\right),
+\end{equation}
+yielding
+\begin{equation}
+\pdv{\rho s}{t} + \pdv{\rho u_i s}{x_i}
+=\frac{1}{T}\left(p\pdv{u_i}{x_i} + u_i\pdv{p}{x_i} - \pdv{p u_i}{x_i}\right) = S_s,
+\end{equation}
+meaning that entropy production is zero when the pressure diffusion term satisfies the discrete product rule.
+Note that, for discontinuous solutions, we want it to be the case that
+\begin{equation}
+S_s \geq 0.
+\end{equation}
+
+\section{Explicit non-flux form of Centered Scheme}
+
+We write the centered approximation of the flux scheme in non-conservation form (even though it is conservative!). We do this
+by dropping the symmetry-generating terms.
+
+For the mass conservation equation:
+\begin{equation}
+\pdv{(\rho u_i)}{x}\Big|_n = \frac{1}{2}\mathcal{D}(\rho u_i)\Big|_n + \frac{1}{2}\rho_n\mathcal{D}(u_i)\Big|_n + \frac{1}{2}u_n\mathcal{D}(\rho_i)\Big|_n
+\end{equation}
+For the momentum conservation equation:
+\begin{equation*}
+\pdv{(\rho u_i u_j + \delta_{ij}p)}{x_i} = \frac{1}{4}\mathcal{D}(\rho u_i u_j)\Big|_n
++ \frac{1}{4}\rho_n\mathcal{D}(u_i u_j)\Big|_n
++ \frac{1}{4}(u_i)_n\mathcal{D}(\rho u_j)\Big|_n
++ \frac{1}{4}(u_j)_n\mathcal{D}(\rho u_i)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(\rho u_i)_n\mathcal{D}(u_j)\Big|_n
++ \frac{1}{4}(\rho u_j)_n\mathcal{D}(u_i)\Big|_n
++ \frac{1}{4}(u_i u_j)_n\mathcal{D}(\rho)\Big|_n + \delta_{ij}\mathcal{D}(p)\Big|_n
+\end{equation}
+For the energy equation:
+\begin{equation}
+\pdv{(\rho E)}{t} = \pdv{(\rho k + \rho e)}{t} = -\pdv{\rho u_i(k + e + p/\rho)}{x_i}
+\end{equation}
+we compute the gradients individually:
+\begin{equation*}
+\pdv{(\rho u_i e)}{x_i} = \frac{1}{4}\mathcal{D}(\rho u_i e)\Big|_n
++ \frac{1}{4}\rho_n\mathcal{D}(u_i e)\Big|_n
++ \frac{1}{4}(u_i)_n\mathcal{D}(\rho e)\Big|_n
++ \frac{1}{4}(e)_n\mathcal{D}(\rho u_i)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(\rho u_i)_n\mathcal{D}(e)\Big|_n
++ \frac{1}{4}(\rho e)_n\mathcal{D}(u_i)\Big|_n
++ \frac{1}{4}(u_i e)_n\mathcal{D}(\rho)\Big|_n
+\end{equation}
+The other two terms are slightly different. Note the following:
+\begin{equation*}
+(f_{i} + f_{i+l})(g_{i} + g_{i+l})(h_{i}h_{i+l}) - (f_{i} + f_{i-l})(g_{i} + g_{i-l})(h_{i}h_{i-l})
+\end{equation*}
+\begin{equation*}
+= f_{i}g_{i}h_{i}h_{i+l} + f_{i+l}g_{i}h_{i}h_{i+l} + f_{i}g_{i+l}h_{i}h_{i+l} + f_{i+l}g_{i+l}h_{i}h_{i+l}
+\end{equation*}
+\begin{equation*}
+- f_{i}g_{i}h_{i}h_{i-l} - f_{i-l}g_{i}h_{i}h_{i-l} - f_{i}g_{i-l}h_{i}h_{i-l} - f_{i-l}g_{i-l}h_{i}h_{i-l}
+\end{equation*}
+\begin{equation}
+=f_{i}g_{i}h_{i}(h_{i+l} - h_{i-l}) + g_{i}h_{i}(f_{i+l}h_{i+l} - f_{i-l}h_{i-l}) + f_{i}h_{i}(g_{i+l}h_{i+l} - g_{i-l}h_{i-l})
++ h_{i}(f_{i+l}g_{i+l}h_{i+l} - f_{i-l}g_{i-l}h_{i-l})
+\end{equation}
+We have to relate this form to the continuous version (without the pressure gradient term for now):
+\begin{equation}\label{eq::kinet_anal}
+\frac{1}{2}\pdv{(\rho u_ku_k)}{t} = u_k\pdv{\rho u_k}{t} - \frac{1}{2}u_ku_k\pdv{\rho}{t}
+= -u_k\pdv{(\rho u_i u_k)}{x_i} + \frac{1}{2}u_ku_k\pdv{\rho u_i}{x_i}
+\end{equation}
+We (necessarily) expand the momentum and mass residuals in the split forms:
+\begin{equation*}
+\pdv{(\rho u_i u_k)}{x_i} = \frac{1}{4}\pdv{(\rho u_i u_k)}{x_i} + \frac{1}{4}\rho\pdv{(u_iu_k)}{x_i}
+ + \frac{1}{4}u_i\pdv{(\rho u_k)}{x_i}
+  + \frac{1}{4}u_k\pdv{(\rho u_i)}{x_i}
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}\rho u_i \pdv{u_k}{x_i}
++ \frac{1}{4}\rho u_k \pdv{u_i}{x_i}
++ \frac{1}{4}u_k u_i \pdv{\rho}{x_i}
+\end{equation}
+and
+\begin{equation}
+\pdv{(\rho u_i)}{x_i} = \frac{1}{2}\pdv{(\rho u_i)}{x_i} + \frac{1}{2}\rho \pdv{u_i}{x_i} + \frac{1}{2}u_i \pdv{\rho}{x_i}
+\end{equation}
+Substituting into the above gives:
+\begin{equation*}
+\frac{1}{2}\pdv{(\rho u_ku_k)}{t} = -u_k\pdv{(\rho u_i u_k)}{x_i} + \frac{1}{2}u_ku_k\pdv{\rho u_i}{x_i}
+\end{equation*}
+\begin{equation*}
+= -u_k\frac{1}{4}\pdv{(\rho u_i u_k)}{x_i} -u_k\frac{1}{4}\rho\pdv{(u_iu_k)}{x_i}
+ -u_k\frac{1}{4}u_i\pdv{(\rho u_k)}{x_i}
+  -u_k\frac{1}{4}u_k\pdv{(\rho u_i)}{x_i}
+\end{equation*}
+\begin{equation*}
+-u_k\frac{1}{4}\rho u_i \pdv{u_k}{x_i}
+-u_k\frac{1}{4}\rho u_k \pdv{u_i}{x_i}
+-u_k\frac{1}{4}u_k u_i \pdv{\rho}{x_i}
++ \frac{1}{4}u_ku_k\pdv{(\rho u_i)}{x_i} + \frac{1}{4}u_ku_k\rho \pdv{u_i}{x_i} + \frac{1}{4}u_ku_ku_i \pdv{\rho}{x_i}
+\end{equation*}
+\begin{equation}
+= -u_k\frac{1}{4}\pdv{(\rho u_i u_k)}{x_i} -u_k\frac{1}{4}\rho\pdv{(u_iu_k)}{x_i}
+ -u_k\frac{1}{4}u_i\pdv{(\rho u_k)}{x_i}
+  -u_k\frac{1}{4}\rho u_i \pdv{u_k}{x_i}
+\end{equation}
+\newcommand{\quadA}{\rho u_ku_k}
+\newcommand{\quadB}{u_i}
+\newcommand{\cubeA}{\rho u_k}
+\newcommand{\cubeB}{u_i}
+\newcommand{\cubeC}{u_k}
+The convective split-form term for the kinetic energy equation using the quadratic split $\{\quadA{}, \quadB{}\}$ and the
+cubic split $\{\cubeA{}, \cubeB{}, \cubeC{}\}$:
+\begin{equation*}
+-\frac{1}{2}\pdv{\rho u_i u_k u_k}{x_i} = \frac{1}{2}\pdv{\rho u_i u_k u_k}{x_i} - \pdv{\rho u_i u_k u_k}{x_i}
+\end{equation*}
+\begin{equation*}
+=\frac{1}{4}\pdv{\rho u_i u_k u_k}{x_i} + \frac{1}{4}\quadA{}\pdv{\quadB{}}{x_i} + \frac{1}{4}\quadB{}\pdv{\quadA{}}{x_i}
+-\frac{1}{4}\pdv{\rho u_i u_k u_k}{x_i}
+-\frac{1}{4}\cubeA{}\pdv{\cubeB{}\cubeC{}}{x_i}
+-\frac{1}{4}\cubeB{}\pdv{\cubeA{}\cubeC{}}{x_i}
+-\frac{1}{4}\cubeC{}\pdv{\cubeA{}\cubeB{}}{x_i}
+\end{equation*}
+\begin{equation*}
+-\frac{1}{4}\cubeB{}\cubeC{}\pdv{\cubeA{}}{x_i}
+-\frac{1}{4}\cubeA{}\cubeC{}\pdv{\cubeB{}}{x_i}
+-\frac{1}{4}\cubeA{}\cubeB{}\pdv{\cubeC{}}{x_i}
+\end{equation*}
+\begin{equation}
+=-\frac{1}{4}\cubeA{}\pdv{\cubeB{}\cubeC{}}{x_i}
+-\frac{1}{4}\cubeC{}\pdv{\cubeA{}\cubeB{}}{x_i}
+-\frac{1}{4}\cubeB{}\cubeC{}\pdv{\cubeA{}}{x_i}
+-\frac{1}{4}\cubeA{}\cubeB{}\pdv{\cubeC{}}{x_i}
+\end{equation}
+Therefore, the kinetic energy residual can simply be calculated as
+\begin{equation*}
+\frac{1}{2}\pdv{(\rho u_i u_k u_k)}{x_i} = \frac{1}{4}(\rho u_k)_n\mathcal{D}(u_i u_k)\Big|_n + \frac{1}{4}(u_k)_n\mathcal{D}(\rho u_i u_k)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(u_iu_k)_n\mathcal{D}(\rho u_k)\Big|_n
++ \frac{1}{4}(\rho u_i u_k)_n\mathcal{D}(u_k)\Big|_n
+\end{equation}
+or directly using (\ref{eq::kinet_anal}), although this will implicitly introduce the pressure gradient term. Finally, the pressure diffusion needs to be analyzed:
+\begin{equation}
+(f_{i}g_{i+l} + f_{i+l}g_{i}) - (f_{i}g_{i-l} + f_{i-l}g_{i})
+=
+f_{i}(g_{i+l} - g_{i-l}) + g_{i}(f_{i+l} - f_{i - l}),
+\end{equation}
+so the pressure diffusion can be computed as
+\begin{equation}
+\pdv{(u_i p)}{x_i} = (u_i)_n\mathcal{D}(p)\Big|_n + (p)_n\mathcal{D}(u_i)\Big|_n,
+\end{equation}
+although if (\ref{eq::kinet_anal}) is used to compute the kinetic energy residual, then the term 
+\begin{equation}
+(p)_n\mathcal{D}(u_i)\Big|_n
+\end{equation}
+should be added to account for the internal energy exchange.
+\subsection{Summary of Nonconservative Formulation}
+\begin{equation}
+\pdv{(\rho u_i)}{x}\Big|_n = \frac{1}{2}\mathcal{D}(\rho u_i)\Big|_n + \frac{1}{2}\rho_n\mathcal{D}(u_i)\Big|_n + \frac{1}{2}u_n\mathcal{D}(\rho_i)\Big|_n
+\end{equation}
+\begin{equation*}
+\pdv{(\rho u_i u_j + \delta_{ij}p)}{x_i} = \frac{1}{4}\mathcal{D}(\rho u_i u_j)\Big|_n
++ \frac{1}{4}\rho_n\mathcal{D}(u_i u_j)\Big|_n
++ \frac{1}{4}(u_i)_n\mathcal{D}(\rho u_j)\Big|_n
++ \frac{1}{4}(u_j)_n\mathcal{D}(\rho u_i)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(\rho u_i)_n\mathcal{D}(u_j)\Big|_n
++ \frac{1}{4}(\rho u_j)_n\mathcal{D}(u_i)\Big|_n
++ \frac{1}{4}(u_i u_j)_n\mathcal{D}(\rho)\Big|_n + \delta_{ij}\mathcal{D}(p)\Big|_n
+\end{equation}
+\begin{equation*}
+\pdv{(\rho u_i e)}{x_i} = \frac{1}{4}\mathcal{D}(\rho u_i e)\Big|_n
++ \frac{1}{4}\rho_n\mathcal{D}(u_i e)\Big|_n
++ \frac{1}{4}(u_i)_n\mathcal{D}(\rho e)\Big|_n
++ \frac{1}{4}(e)_n\mathcal{D}(\rho u_i)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(\rho u_i)_n\mathcal{D}(e)\Big|_n
++ \frac{1}{4}(\rho e)_n\mathcal{D}(u_i)\Big|_n
++ \frac{1}{4}(u_i e)_n\mathcal{D}(\rho)\Big|_n
+\end{equation}
+\begin{equation*}
+\frac{1}{2}\pdv{(\rho u_i u_k u_k)}{x_i} = \frac{1}{4}(\rho u_k)_n\mathcal{D}(u_i u_k)\Big|_n + \frac{1}{4}(u_k)_n\mathcal{D}(\rho u_i u_k)\Big|_n
+\end{equation*}
+\begin{equation}
++ \frac{1}{4}(u_iu_k)_n\mathcal{D}(\rho u_k)\Big|_n
++ \frac{1}{4}(\rho u_i u_k)_n\mathcal{D}(u_k)\Big|_n
+\end{equation}
+\begin{equation}
+\pdv{(u_i p)}{x_i} = (u_i)_n\mathcal{D}(p)\Big|_n + (p)_n\mathcal{D}(u_i)\Big|_n
+\end{equation}
+\section{Characteristics}
+The euler equations are given as
+\begin{equation*}
+\pdv{}{t}\mat{\rho \\ \rho u_i \\ \rho E} + \pdv{}{x_j}\mat{\rho u_j \\ \rho u_i u_j + \delta_{ij}p \\ \rho u_j (E + h)} = 0
+\end{equation*}
+With the conservative variables
+\begin{equation}
+w = \mat{\rho \\ \rho u_i \\ \rho E} = \mat{w_\rho \\ w_i \\ w_E}
+\end{equation}
+the flux jacobian is given by
+\begin{equation*}
+\pdv{f_j}{w} = \pdv{}{w}\mat{\rho u_j \\ \rho u_i u_j + \delta_{ij}p \\ \rho u_j (E + h)}
+\end{equation*}
+\begin{equation}
+\pdv{}{w}\mat{w_j \\ w_j w_i / w_\rho + \delta_{ij}p \\ w_E w_j / w_\rho + p w_j/w_\rho }
+= J_j.
+\end{equation}
+\begin{equation}
+(\gamma - 1) E = p + \frac{1}{\rho ^ 2}(\gamma - 1)\frac{1}{2}((\rho u)^2 + (\rho v)^2 + (\rho w)^2)
+\end{equation}
+\begin{equation}
+p = (\gamma - 1)\left(w_E - \frac{1}{w_\rho ^ 2}\frac{1}{2}\left(w_kw_k\right)\right)
+\end{equation}
+Writing explicitly: (note: use included cpp code to validate)
+\begin{equation*}
+f_0 = \mat{ w_0 \\ \frac{w_0w_0}{w_\rho} + p \\ \frac{w_0w_1}{w_\rho} \\ \frac{w_0w_2}{w_\rho} \\ w_E w_0 / w_\rho + p w_0/w_\rho}
+\hspace{1mm}
+f_1 = \mat{ w_1 \\ \frac{w_1w_0}{w_\rho} \\ \frac{w_1w_1}{w_\rho} + p \\ \frac{w_1w_2}{w_\rho} \\ w_E w_1 / w_\rho + p w_1/w_\rho}
+\hspace{1mm}
+f_2 = \mat{ w_2 \\ \frac{w_2w_0}{w_\rho} \\ \frac{w_2w_1}{w_\rho} \\ \frac{w_2w_2}{w_\rho} +p \\ w_E w_2 / w_\rho + p w_2/w_\rho}
+\end{equation*}
+\begin{equation}
+J_0 = \mat{
+0 & 1 & 0 & 0 & 0 \\
+-\frac{w_0 w_0}{w_\rho ^ 2} + \pdv{p}{w_\rho} & \frac{2w_0}{w_\rho} + \pdv{p}{w_0} & \pdv{p}{w_1} & \pdv{p}{w_2} & \pdv{p}{w_E}\\
+-\frac{w_0 w_1}{w_\rho ^ 2} & \frac{w_1}{w_\rho} & \frac{w_0}{w_\rho} & 0 & 0\\
+-\frac{w_0 w_2}{w_\rho ^ 2} & \frac{w_2}{w_\rho} & 0 & \frac{w_0}{w_\rho} & 0\\
+-\frac{w_Ew_0}{w_\rho^2} - \frac{pw_0}{w_\rho^2} + \frac{w_0}{w_\rho}\pdv{p}{w_\rho} & \frac{w_E}{w_\rho} + \frac{p}{w_\rho} + \frac{1}{w_\rho}\pdv{p}{w_0} & 0 & 0 & \frac{w_0}{w_\rho}
+}
+\end{equation}
+\begin{equation}
+J_1 = \mat{
+0 & 0 & 1 & 0 & 0 \\
+-\frac{w_1 w_0}{w_\rho ^ 2}& \frac{w_1}{w_\rho} & \frac{w_0}{w_\rho} & 0 & 0\\
+-\frac{w_1 w_1}{w_\rho ^ 2} + \pdv{p}{w_\rho} & \pdv{p}{w_0} & \frac{2w_1}{w_\rho} + \pdv{p}{w_1} & \pdv{p}{w_2} & \pdv{p}{w_E}\\
+-\frac{w_1 w_2}{w_\rho ^ 2} & 0 & \frac{w_2}{w_\rho} & \frac{w_1}{w_\rho} & 0\\
+-\frac{w_Ew_1}{w_\rho^2} - \frac{pw_1}{w_\rho^2} + \frac{w_1}{w_\rho}\pdv{p}{w_\rho} & 0 & \frac{w_E}{w_\rho} + \frac{p}{w_\rho} + \frac{1}{w_\rho}\pdv{p}{w_1} & 0 & \frac{w_1}{w_\rho}
+}
+\end{equation}
+\begin{equation}
+J_2 = \mat{
+0 & 0 & 0 & 1 & 0 \\
+-\frac{w_2 w_0}{w_\rho ^ 2}& \frac{w_2}{w_\rho} & 0 & \frac{w_0}{w_\rho} & 0\\
+-\frac{w_2 w_1}{w_\rho ^ 2} & 0 & \frac{w_2}{w_\rho} & \frac{w_1}{w_\rho} & 0\\
+-\frac{w_2 w_2}{w_\rho ^ 2} + \pdv{p}{w_\rho} & \pdv{p}{w_0} & \pdv{p}{w_1} & \frac{2w_2}{w_\rho} + \pdv{p}{w_2} & \pdv{p}{w_E}\\
+-\frac{w_Ew_2}{w_\rho^2} - \frac{pw_2}{w_\rho^2} + \frac{w_2}{w_\rho}\pdv{p}{w_\rho} & 0 & 0 & \frac{w_E}{w_\rho} + \frac{p}{w_\rho} + \frac{1}{w_\rho}\pdv{p}{w_2} & \frac{w_2}{w_\rho}
+}
+\end{equation}
+\end{document}
